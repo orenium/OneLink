@@ -62,7 +62,6 @@ public class FacebookMainPage extends BasePage {
                     }
                 } else {
                     System.out.println("Unable to find posts. Retrying #" + (retry + 1));
-//                    swipeDown();
                 }
                 retry++;
             } while (posts.size() == 0 && retry < 3);

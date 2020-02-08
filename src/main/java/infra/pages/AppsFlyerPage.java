@@ -1,9 +1,11 @@
 package infra.pages;
 
 import io.appium.java_client.MobileDriver;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.ExpectedConditions;
+
+import java.util.List;
 
 public class AppsFlyerPage extends BasePage {
 
@@ -14,11 +16,16 @@ public class AppsFlyerPage extends BasePage {
         super(driver);
     }
 
-    public String getPageMainContent() {
+    public String getSecondActivityContent() {
+        List<WebElement> textViews;
+        int rety = 3;
         try {
-            Thread.sleep(4000);   // For the redirect to the 2sn Activity
-            wait.until(ExpectedConditions.visibilityOf(activityContent));
-            return activityContent.getText();
+            do {
+                Thread.sleep(3000);
+                textViews = driver.findElements(By.className("android.widget.TextView"));
+                rety--;
+            } while (!textViews.get(2).getText().isEmpty() && rety > 0);
+            return textViews.get(1).getText();
         } catch (Exception ex) {
             System.out.println("AppsFlyerPage.getPageMainContent: " + ex.getMessage());
         }

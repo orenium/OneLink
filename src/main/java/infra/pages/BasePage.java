@@ -13,13 +13,6 @@ import java.util.Set;
 
 public class BasePage {
 
-
-    @AndroidFindBy(id = "com.android.chrome:id/action_bar_root")
-    public WebElement notificationsPopup;
-
-    @FindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/rz/android.widget.ScrollView/android.widget.LinearLayout/android.widget.Button[2]")
-    public WebElement allowNotificationsBtn;
-
     public MobileDriver driver;
     public WebDriverWait wait;
     public static TouchAction touchAction;

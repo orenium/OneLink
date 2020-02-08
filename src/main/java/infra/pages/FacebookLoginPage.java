@@ -48,9 +48,4 @@ public class FacebookLoginPage extends BasePage {
     }
 
 
-    public void dissmissOneTapLogin() {
-
-
-    }
-
 }

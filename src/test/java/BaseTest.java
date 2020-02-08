@@ -3,13 +3,14 @@ import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.remote.AndroidMobileCapabilityType;
 import io.appium.java_client.remote.AutomationName;
 import io.appium.java_client.remote.MobileCapabilityType;
-import io.appium.java_client.service.local.AppiumDriverLocalService;
 import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 
+import java.io.File;
+import java.io.IOException;
 import java.net.URL;
 
 public abstract class BaseTest {
@@ -18,28 +19,11 @@ public abstract class BaseTest {
 
     private DesiredCapabilities capabilities;
 
-//    @BeforeSuite
-//    public void runBeforeSuite() {
-//
-//
-//    }
-
-
     @BeforeTest
     public void runBeforeEachTest() {
-//        startAppium();
         swtNewAndroidDriver();
-
-
     }
 
-    private void startAppium() {
-        AppiumDriverLocalService service = AppiumDriverLocalService.buildDefaultService();
-        service.start();
-        service.stop();
-
-
-    }
 
     private void swtNewAndroidDriver() {
 
@@ -58,7 +42,6 @@ public abstract class BaseTest {
 
             capabilities.setCapability(AndroidMobileCapabilityType.APPLICATION_NAME, " ");
             capabilities.setCapability(AndroidMobileCapabilityType.BROWSER_NAME, "Chrome");
-            //TODO: change tha path to relative
             capabilities.setCapability("chromedriverExecutable", "/Users/obroshi/Documents/OneLink/src/main/resources/chromedriver");
             capabilities.setCapability(MobileCapabilityType.NO_RESET, false);
 

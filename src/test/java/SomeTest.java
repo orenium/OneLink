@@ -1,6 +1,6 @@
 import infra.pages.AppsFlyerPage;
-import infra.pages.FacebookMainPage;
 import infra.pages.FacebookLoginPage;
+import infra.pages.FacebookMainPage;
 import infra.pages.GooglePlayAppPage;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -10,25 +10,38 @@ public class SomeTest extends BaseTest {
     private final String FB_USERNAME = "uemuptkcvb_1579771708@tfbnw.net";
     private final String FB_PASSWORD = "Aa123456!";
     private final String POST_CONTENT = "https://afonelink.onelink.me/X9ni/d1dee455";
-    private String lastPostOnFeed;
     private AppsFlyerPage appsFlyerPage;
+    private String expected = "Welcome to the Second Activity!";
 
     @Test
-    public void loginToFacebook() {
+    public void homeAssignmentTest() {
 
-        System.out.println("This is the test: loginToFacebook");
+        System.out.println("Step 1: Login to Facebook");
         FacebookLoginPage loginPage = new FacebookLoginPage(mobileDriver);
         FacebookMainPage mainPage = loginPage.loginToFaceBook(FB_USERNAME, FB_PASSWORD);
-        mainPage.postOnFaceBook(POST_CONTENT);
+
+        System.out.println("Step 2: Publish the given link on the feed");
+//        mainPage.postOnFaceBook(POST_CONTENT);
+
+        System.out.println("Step 3: Click on the posted link from the feed");
         GooglePlayAppPage googlePlayAppPage = mainPage.openLastPostURL();
+
+        System.out.println("Step 4 :Install 'AppsFlyer Applinks");
         boolean appInstalled = googlePlayAppPage.installApp();
-        if (appInstalled){
-           appsFlyerPage = googlePlayAppPage.openApp();
+        if (appInstalled) {
+            System.out.println("Step 5 :Launch the AppsFlyer app ");
+            appsFlyerPage = googlePlayAppPage.openApp();
         }
 
-        Assert.assertEquals(appsFlyerPage.getPageMainContent(), "Welcome to the Second Activity!");
-
-
+        System.out.println("Step 6 :Verify 2nd Activity");
+        String actual = appsFlyerPage.getSecondActivityContent();
+        if (actual.equals(expected)) {
+            System.out.println("Test Passed");
+        } else {
+            System.out.println("Test failed");
+        }
+        Assert.assertEquals(actual, expected);
+        
     }
 
 
