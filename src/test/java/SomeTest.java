@@ -21,7 +21,7 @@ public class SomeTest extends BaseTest {
         FacebookMainPage mainPage = loginPage.loginToFaceBook(FB_USERNAME, FB_PASSWORD);
 
         System.out.println("Step 2: Publish the given link on the feed");
-//        mainPage.postOnFaceBook(POST_CONTENT);
+        mainPage.postOnFaceBook(POST_CONTENT);
 
         System.out.println("Step 3: Click on the posted link from the feed");
         GooglePlayAppPage googlePlayAppPage = mainPage.openLastPostURL();
@@ -41,7 +41,7 @@ public class SomeTest extends BaseTest {
             System.out.println("Test failed");
         }
         Assert.assertEquals(actual, expected);
-        
+
     }
 
 
