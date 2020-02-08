@@ -11,7 +11,7 @@ public class SomeTest extends BaseTest {
     private final String FB_PASSWORD = "Aa123456!";
     private final String POST_CONTENT = "https://afonelink.onelink.me/X9ni/d1dee455";
     private AppsFlyerPage appsFlyerPage;
-    private String expected = "Welcome to the Second Activity!";
+    private final String EXPECTED = "Welcome to the Second Activity!";
 
     @Test
     public void homeAssignmentTest() {
@@ -35,12 +35,12 @@ public class SomeTest extends BaseTest {
 
         System.out.println("Step 6 :Verify 2nd Activity");
         String actual = appsFlyerPage.getSecondActivityContent();
-        if (actual.equals(expected)) {
+        if (actual.equals(EXPECTED)) {
             System.out.println("Test Passed");
         } else {
             System.out.println("Test failed");
         }
-        Assert.assertEquals(actual, expected);
+        Assert.assertEquals(actual, EXPECTED);
 
     }
 
