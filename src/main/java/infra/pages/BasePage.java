@@ -51,7 +51,7 @@ public class BasePage {
                 }
             }
         } catch (Exception ex) {
-
+            System.out.println("BasePage.switchContext: " + ex.getMessage());
         }
     }
 

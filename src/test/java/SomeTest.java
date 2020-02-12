@@ -36,9 +36,9 @@ public class SomeTest extends BaseTest {
         System.out.println("Step 6 :Verify 2nd Activity");
         String actual = appsFlyerPage.getSecondActivityContent();
         if (actual.equals(EXPECTED)) {
-            System.out.println("Test Passed");
+            System.out.println("Test Passed!");
         } else {
-            System.out.println("Test failed");
+            System.out.println("Test failed!");
         }
         Assert.assertEquals(actual, EXPECTED);
 
